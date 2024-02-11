@@ -13,11 +13,14 @@ export default function HomeStack() {
 			screenOptions={{
 				headerMode: 'screen',
 				headerTintColor: 'white',
-				headerStyle: { backgroundColor: '#002E60' },
+				headerStyle: {
+					backgroundColor: '#002E60',
+					height: 90,
+				},
 				headerRight: () => (
 					<View style={{ flexDirection: 'row', marginRight: 10 }}>
 						<Icon name={"trash-alt"} type={"font-awesome-5"} color={"white"} size={24} />
-						<Text style={{ color: 'white', fontSize: 20, marginLeft: 10 }}>SIMBBA</Text>
+						<Text style={{ color: 'white', fontSize: 20, marginLeft: 10, marginRight: 10 }}>SIMBBA</Text>
 					</View>
 				)
 			}}
@@ -26,7 +29,7 @@ export default function HomeStack() {
 				name={"Home"}
 				component={Home}
 				options={{
-					title: "Inicio",
+					title: "INICIO",
 					headerTitleAlign: 'left',
 				}}
 			/>

@@ -1,8 +1,8 @@
 import React from "react";
-import {Text, View, StyleSheet} from "react-native";
-import {Button} from "@rneui/themed";
+import { Text, View, StyleSheet } from "react-native";
+import { Button } from "@rneui/themed";
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             {/*
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#FFFFFF'
     }
 })

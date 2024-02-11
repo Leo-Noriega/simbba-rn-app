@@ -12,12 +12,15 @@ export default function ProfileStack() {
 			initialRouteName={"Mi Perfil"}
 			screenOptions={{
 				headerTintColor: 'white',
-				headerStyle: { backgroundColor: '#002E60' },
+				headerStyle: {
+					backgroundColor: '#002E60',
+					height: 90,
+				},
 				// El header de lado izquierdo tiene el titulo de la screen y el lado derecho un icon y un text
 				headerRight: () => (
 					<View style={{ flexDirection: 'row', marginRight: 10 }}>
 						<Icon name={"trash-alt"} type={"font-awesome-5"} color={"white"} size={24} />
-						<Text style={{ color: 'white', fontSize: 20, marginLeft: 10 }}>SIMBBA</Text>
+						<Text style={{ color: 'white', fontSize: 20, marginLeft: 10, marginRight: 10}}>SIMBBA</Text>
 					</View>
 				)
 
@@ -27,7 +30,7 @@ export default function ProfileStack() {
 				name={"Mi Perfil"}
 				component={Profile}
 				options={{
-					title: "Mi perfil",
+					title: "MI PERFIL",
 					headerTitleAlign: 'left',
 				}}
 			/>
@@ -35,7 +38,7 @@ export default function ProfileStack() {
 				name={"Editar Perfil"}
 				component={UpdateProfile}
 				options={{
-					title: "Mi perfil",
+					title: "EDITAR PERFIL",
 					headerTitleAlign: 'left',
 					headerBackTitleVisible: false,
 				}}

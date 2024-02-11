@@ -16,16 +16,27 @@ export default function Navigation() {
 					const { iconName, iconType } = getIconName(route.name, focused);
 					return <Icon name={iconName} type={iconType} size={30} color={color} />;
 				},
-				tabBarActiveTintColor: '#0F2D5D',
+				tabBarActiveTintColor: '#419277',
+				/*
+				Quitamos esto momentaneamente
+
 				tabBarActiveBackgroundColor: '#419277',
 				tabBarItemStyle: {
-					borderTopStartRadius:100,
-					borderTopEndRadius:100,
+					borderTopStartRadius: 100,
+					borderTopEndRadius: 100,
 				},
+				*/
 				tabBarInactiveTintColor: 'white',
 				headerShown: false,
-				tabBarStyle: { backgroundColor: '#002E60'},
-			})}>
+				tabBarStyle: {
+					backgroundColor: '#002E60',
+					width: '100%',
+					height: '9%',
+					paddingBottom: 11,
+					paddingTop: 11
+				},
+			})}
+			>
 				<Tab.Screen
 					name={"Perfil"}
 					component={ProfileStack}
