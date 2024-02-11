@@ -17,8 +17,14 @@ export default function Navigation() {
 					return <Icon name={iconName} type={iconType} size={30} color={color} />;
 				},
 				tabBarActiveTintColor: '#0F2D5D',
-				tabBarInactiveTintColor: 'gray',
-				headerShown: false
+				tabBarActiveBackgroundColor: '#419277',
+				tabBarItemStyle: {
+					borderTopStartRadius:100,
+					borderTopEndRadius:100,
+				},
+				tabBarInactiveTintColor: 'white',
+				headerShown: false,
+				tabBarStyle: { backgroundColor: '#002E60'},
 			})}>
 				<Tab.Screen
 					name={"Perfil"}
