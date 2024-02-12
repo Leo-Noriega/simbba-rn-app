@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -18,9 +19,10 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+*/
 
-/*
-Comentamos esto momentaneamente para hacer la ventana de Login
+
+// Comentamos esto momentaneamente para hacer la ventana de Login
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -40,4 +42,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-*/
+

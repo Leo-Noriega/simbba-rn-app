@@ -11,7 +11,11 @@ export default function Home({ navigation }) {
             individual en su propio archivo y ya nada mas llamarlo las veces que se
             requira para lo dinámico si no, la neta no se me ocurre otra forma
             */}
-            <Text>HOME</Text>
+            <Text
+                style={styles.title}>
+                Datos Botes de Basura
+            </Text>
+
             <Button
                 title={"Simulando que le picas a un bote"}
                 onPress={() => {
@@ -26,7 +30,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'start',
         backgroundColor: '#FFFFFF'
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: "#9B9B9B",
+        textAlign: 'left',
+        width: '80%',
+        marginTop: 40
     }
 })
