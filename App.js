@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Login } from './src/modules/auth/login/adapters/screens/Login';
 import Profile from './src/modules/profile/adapters/screens/Profile';
+import { RecoverLogin } from './src/modules/auth/login/adapters/screens/RecoverLogin';
 
 const Stack = createStackNavigator();
 
@@ -11,6 +12,7 @@ export default function Navigation() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="RecoverLogin" component={RecoverLogin} />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>

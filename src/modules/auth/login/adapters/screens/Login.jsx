@@ -1,23 +1,21 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, View, Switch } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, View, Switch, TouchableOpacity } from 'react-native';
 import { Button, Icon } from "@rneui/base";
 
 export function Login({ navigation }) {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
         <View style={styles.container}>
             <View style={styles.containerLogin}>
 
-                <Text
-                    style={styles.title}>
+                <Text style={styles.title}>
                     {"Inicia sesión en SIBBAI"}
                 </Text>
 
-                <Text
-                    style={styles.label}>
+                <Text style={styles.label}>
                     {"Correo electrónico:"}
                 </Text>
                 <TextInput
@@ -25,11 +23,10 @@ export function Login({ navigation }) {
                     placeholder={"Correo electrónico"}
                 />
 
-                <Text
-                    style={styles.label}>
+                <Text style={styles.label}>
                     {"Contraseña:"}
                 </Text>
-                <View style={[styles.passwordInputContainer, {marginBottom: 10}]}>
+                <View style={[styles.passwordInputContainer, { marginBottom: 10 }]}>
                     <TextInput
                         placeholder={"Contraseña"}
                         style={styles.passwordInput}
@@ -59,13 +56,16 @@ export function Login({ navigation }) {
                     size={"lg"}
                     buttonStyle={styles.button}
                     titleStyle={styles.titleButton}
-                    onPress={() =>
-                        navigation.navigate('')}
+                    onPress={() => navigation.navigate('')}
                 />
 
-                <Text style={styles.forget}>
-                    {"¿Se te ha olvidado la contraseña?"}
-                </Text>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('RecoverLogin')}
+                >
+                    <Text style={styles.forget}>
+                        {"¿Se te ha olvidado la contraseña?"}
+                    </Text>
+                </TouchableOpacity>
 
             </View>
 
@@ -82,7 +82,7 @@ export function Login({ navigation }) {
                 </Text>
             </View>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -189,4 +189,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20
     }
-})
+});
