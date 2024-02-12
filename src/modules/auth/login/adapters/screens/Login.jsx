@@ -29,7 +29,7 @@ export function Login({ navigation }) {
                     style={styles.label}>
                     {"Contraseña:"}
                 </Text>
-                <View style={styles.passwordInputContainer}>
+                <View style={[styles.passwordInputContainer, {marginBottom: 10}]}>
                     <TextInput
                         placeholder={"Contraseña"}
                         style={styles.passwordInput}
