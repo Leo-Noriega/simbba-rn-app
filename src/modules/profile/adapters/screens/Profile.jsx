@@ -42,6 +42,8 @@ export default function Profile({ navigation }) {
 						fontSize: 18,
 						fontWeight: 'bold'
 					}}
+					onPress={() =>
+						navigation.navigate('Login')}
 				/>
 			</View>
 		</View>
