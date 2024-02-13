@@ -2,17 +2,39 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Switch, TouchableOpacity } from 'react-native';
 import { Button, Icon } from "@rneui/base";
 
-export function Login({ navigation }) {
+export default function Login({ navigation }) {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [email, setEmail] = useState(''); 
+    const [password, setPassword] = useState(''); 
     const [showPassword, setShowPassword] = useState(false);
+
+    const login = () => {
+        console.log('====================================');
+        console.log('email: ', email);
+        console.log('password: ', password);
+    
+        if (!email || !password) {
+            console.log('La cadena de correo electrónico o la contraseña está vacía.');
+            return; 
+        }
+
+        navigation.navigate('Mi Perfil');
+    }
+
+    const mostrarEmail = (text) => {
+        setEmail(text);
+    }
+    const mostrarPassword = (text) => {
+        setPassword(text);
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.containerLogin}>
 
                 <Text style={styles.title}>
-                    {"Inicia sesión en SIBBAI"}
+                    {"Inicia sesión en SIMBBA"}
                 </Text>
 
                 <Text style={styles.label}>
@@ -21,6 +43,8 @@ export function Login({ navigation }) {
                 <TextInput
                     style={[styles.input, { marginBottom: 30 }]}
                     placeholder={"Correo electrónico"}
+                    keyboardType='email-address'
+                    onChangeText={mostrarEmail}
                 />
 
                 <Text style={styles.label}>
@@ -30,6 +54,7 @@ export function Login({ navigation }) {
                     <TextInput
                         placeholder={"Contraseña"}
                         style={styles.passwordInput}
+                        onChangeText={mostrarPassword}
                         secureTextEntry={!showPassword} />
                     <Icon
                         type="material-community"
@@ -56,7 +81,7 @@ export function Login({ navigation }) {
                     size={"lg"}
                     buttonStyle={styles.button}
                     titleStyle={styles.titleButton}
-                    onPress={() => navigation.navigate('')}
+                    onPress={() => login()}
                 />
 
                 <TouchableOpacity

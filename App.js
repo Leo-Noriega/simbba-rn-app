@@ -23,14 +23,19 @@ export default function Navigation() {
 
 
 // Comentamos esto momentaneamente para hacer la ventana de Login
-
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation from "./src/config/navigation/Navigation";
-
+import Login from "./src/modules/auth/login/adapters/screens/Login";
+const estado = false;//verdadero muestra Login sin la barra, false muestra todo con Navigation
 export default function App() {
+  
   return (
-      <Navigation/>
+    <>
+      {estado ? <Login /> : <Navigation />}
+      <StatusBar style="auto" />
+    </>
   );
 }
 

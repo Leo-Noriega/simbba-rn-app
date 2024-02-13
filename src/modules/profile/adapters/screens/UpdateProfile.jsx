@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button, Icon } from "@rneui/base";
 
-export default function UpdateProfile() {
+export default function UpdateProfile({ navigation }) {
     const [showPassword, setShowPassword] = useState(false)
+    const regresar = () => {
+        navigation.navigate('Mi Perfil');
+    }
 
     return (
         <View style={styles.container}>
@@ -53,6 +56,7 @@ export default function UpdateProfile() {
                 color={"#419277"}
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
+                onPress={() => regresar()}
             />
         </View>
     )
