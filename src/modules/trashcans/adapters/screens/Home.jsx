@@ -46,6 +46,10 @@ export default function Home({ navigation }) {
             individual en su propio archivo y ya nada mas llamarlo las veces que se
             requira para lo dinámico si no, la neta no se me ocurre otra forma
             */}
+            <Text
+                style={styles.title}>
+                Datos Botes de Basura
+            </Text>
             <View style={styles.flatListContainer}>
                 <FlatList
                     data={botes}
@@ -62,11 +66,6 @@ export default function Home({ navigation }) {
                     keyExtractor={item => item.uid.toString()}
                 />
             </View>
-            <Text
-                style={styles.title}>
-                Datos Botes de Basura
-            </Text>
-
             <Button
                 title={"Simulando que le picas a un bote"}
                 onPress={() => {
