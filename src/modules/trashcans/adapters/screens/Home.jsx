@@ -8,34 +8,36 @@ export default function Home({ navigation }) {
     const botes=[
         {
           uid:1,
-          image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
+          image: 'https://i.pinimg.com/236x/4c/19/ee/4c19ee1534048a8776b7b7121eec09dc.jpg', 
           title: 'Nombre del Bote 1',
-          description: 'Capacidad - lleno',
+          //description: 'Capacidad - Lleno',
           llenado: 1.0,
-          backgroundColor: '#BC3737',
-          /*
-          Queria ocupar algo asi pero al chile no jalo y no se como hacer que jale, solo es para cambiar el color automaticamente
-          backgroundColor: llenado >= 0.75 ? '#BC3737' : (llenado >= 0.5 ? 'orange' : '#37BC45'),
-            */
-           porcentaje: '100%',
+          //backgroundColor: '#d5a0a0',
+          //porcentaje: '100%',
         },
         {
             uid:2,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
             title: 'Nombre del Bote 2',
-            description: 'Capacidad - medio lleno',
             llenado: 0.8,
-            backgroundColor: '#D7D53E',
-            porcentaje: '80%',
           },
           {
             uid:3,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
             title: 'Nombre del Bote 3',
-            description: 'Capacidad - medio vacio',
             llenado: 0.4,
-            backgroundColor: '#37BC45',
-            porcentaje: '40%',
+          },
+          {
+            uid:4,
+            image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
+            title: 'Nombre del Bote 4',
+            llenado: 0.5,
+          },
+          {
+            uid:5,
+            image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
+            title: 'Nombre del Bote 5',
+            llenado: 0.5,
           },
     ];
     return (
@@ -57,10 +59,7 @@ export default function Home({ navigation }) {
                         <FlatListHome
                             image={item.image}
                             title={item.title}
-                            description={item.description}
                             llenado={item.llenado}
-                            backgroundColor={item.backgroundColor}
-                            porcentaje={item.porcentaje}
                         ></FlatListHome>
                     }
                     keyExtractor={item => item.uid.toString()}
@@ -89,12 +88,24 @@ const styles = StyleSheet.create({
         color: "#9B9B9B",
         textAlign: 'left',
         width: '80%',
-        marginTop: 40
+        marginTop: 40,
+        marginStart: 20,
     },
     flatListContainer: {
         margin: 10, 
+        marginBottom: 90,
         //borderRadius: 90, 
         overflow: 'hidden', 
         //elevation: 2, 
     },
 })
+/*
+flatListContainer: {
+        margin: 10, 
+        borderRadius: 20, // Valor de borde redondeado para esquinas redondeadas
+        overflow: 'hidden', 
+        width: '80%', // Ancho de la FlatList
+        aspectRatio: 1, // Establece la relación de aspecto para que sea cuadrado
+        elevation: 2, // Si lo necesitas
+    },
+*/
