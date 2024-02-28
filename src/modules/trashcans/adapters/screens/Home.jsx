@@ -9,7 +9,7 @@ export default function Home({ navigation }) {
         {
           uid:1,
           image: 'https://i.pinimg.com/236x/4c/19/ee/4c19ee1534048a8776b7b7121eec09dc.jpg', 
-          title: 'Nombre del Bote 1',
+          title: 'Nombre Bote 1',
           //description: 'Capacidad - Lleno',
           llenado: 1.0,
           //backgroundColor: '#d5a0a0',
@@ -18,26 +18,38 @@ export default function Home({ navigation }) {
         {
             uid:2,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
-            title: 'Nombre del Bote 2',
-            llenado: 0.8,
+            title: 'Nombre Bote 2',
+            llenado: 0.5,
           },
           {
             uid:3,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
-            title: 'Nombre del Bote 3',
-            llenado: 0.4,
+            title: 'Nombre Bote 3',
+            llenado: 0.2,
           },
           {
             uid:4,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
-            title: 'Nombre del Bote 4',
-            llenado: 0.5,
+            title: 'Nombre Bote 4',
+            llenado: 0.8,
           },
           {
             uid:5,
             image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
-            title: 'Nombre del Bote 5',
-            llenado: 0.5,
+            title: 'Nombre Bote 5',
+            llenado: 0.75,
+          },
+          {
+            uid:6,
+            image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
+            title: 'Nombre Bote 6',
+            llenado: 0.05,
+          },
+          {
+            uid:7,
+            image: 'https://s1.eestatic.com/2018/07/09/actualidad/actualidad_321231184_86199176_1706x960.jpg', 
+            title: 'Nombre Bote 7',
+            llenado: 0.2,
           },
     ];
     return (
@@ -54,15 +66,18 @@ export default function Home({ navigation }) {
             </Text>
             <View style={styles.flatListContainer}>
                 <FlatList
+                    numColumns={2}
                     data={botes}
                     renderItem={({ item }) =>
                         <FlatListHome
+                            uid={item.uid}
                             image={item.image}
                             title={item.title}
                             llenado={item.llenado}
                         ></FlatListHome>
                     }
                     keyExtractor={item => item.uid.toString()}
+                    contentContainerStyle={styles.latListStyle}
                 />
             </View>
             <Button
@@ -82,30 +97,22 @@ const styles = StyleSheet.create({
         justifyContent: 'start',
         backgroundColor: '#FFFFFF'
     },
+    flatListStyle:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     title: {
         fontSize: 30,
         fontWeight: 'bold',
         color: "#9B9B9B",
         textAlign: 'left',
         width: '80%',
-        marginTop: 40,
+        marginTop: 10,
         marginStart: 20,
     },
     flatListContainer: {
         margin: 10, 
         marginBottom: 90,
-        //borderRadius: 90, 
-        overflow: 'hidden', 
-        //elevation: 2, 
+        overflow: 'hidden',
     },
-})
-/*
-flatListContainer: {
-        margin: 10, 
-        borderRadius: 20, // Valor de borde redondeado para esquinas redondeadas
-        overflow: 'hidden', 
-        width: '80%', // Ancho de la FlatList
-        aspectRatio: 1, // Establece la relación de aspecto para que sea cuadrado
-        elevation: 2, // Si lo necesitas
-    },
-*/
+});

@@ -18,18 +18,19 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit accumsan nullam nisi, vit
 export default function FlatListHome(props) {
     const {image, title, llenado,} = props;
     const fondo = `${llenado >= 0.85 ? '#d5a0a0' : llenado >= 0.75 ? '#e6b69a' : llenado >= 0.5 ? '#eddaab' : '#8fc2aa'}`;//rojo (#d5a0a0), naranja(#e6b69a), amarillo(#eddaab), verde (#8fc2aa)
-    const capacidad = `${llenado >= 0.85 ? 'Lleno' : llenado >= 0.75 ? 'Casi lleno' : llenado >= 0.5 ? 'Medio' : 'Baja'}`;
+    const capacidad = `${llenado >= 0.85 ? 'Lleno' : llenado >= 0.75 ? 'Casi lleno' : llenado >= 0.5 ? 'Media' : 'Baja'}`;
     const dynamicStyles = StyleSheet.create({
       listHome: {
         flex: 1,
         flexDirection: 'column', // Cambiado a columna para alinear los elementos verticalmente
         alignItems: 'center', // Centra los elementos horizontalmente
         marginBottom: 10,
-        elevation: 2,
+        marginRight: 10,
+        elevation: 5,
         backgroundColor: fondo,
         borderRadius: 20,
-        width: '50%',
-        height: 200,
+        width: '45%',
+        height: 160,
     },
     });
     return (
@@ -46,7 +47,7 @@ export default function FlatListHome(props) {
               <View style={dynamicStyles.progressBarContainer}>
                   <Progress.Bar
                       progress={llenado}
-                      width={150}
+                      width={130}
                       color={
                           llenado >= 0.85
                               ? '#a32d2d' // rojo
@@ -79,18 +80,19 @@ const styles = StyleSheet.create({
       padding:16,
     },
     imageContainer: {
-      marginTop: 10,
+      marginTop: 5,
       //marginBottom: 5,
       //alignItems: 'center',
   },
   image:{
-    width:80,
-    height:80,
+    width:60,
+    height:70,
   },
     title: {
         fontSize: 18,
         fontWeight: "bold",
-        marginBottom: 5,
+        marginBottom: 0,
+        marginTop: 0,
         marginRight: 8,
         color: "#000000",
         textAlign: 'center',
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 15,
         fontWeight: "normal",
-        marginBottom: 15,
+        marginBottom: 5,
         color: "#0C0B0B",
         lineHeight: 20,
         textAlign: 'center',
