@@ -1,9 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button, Icon } from "@rneui/base";
+import AxiosClient from "../../../../config/http-client/axios-client";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import CustomAlert from "../../../../kernel/components/CustomAlert";
 
 export default function UpdateProfile() {
-    const [showPassword, setShowPassword] = useState(false)
+
+    // Inicio de alerta
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertInfo, setAlertInfo] = useState({ title: '', message: '' });
+
+    const showCustomAlert = (title, message) => {
+        setAlertInfo({ title, message });
+        setAlertVisible(true);
+    };
+    // Fin de alerta
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const [session, setSession] = useState(null);
+
+    useEffect(() => {
+        const fetchSession = async () => {
+            const storedSession = JSON.parse(await AsyncStorage.getItem("session"));
+            setSession(storedSession);
+            setMail(storedSession?.user?.mail);
+        };
+        fetchSession();
+    }, []);
+
+
+
+    // Inicio de Cambio de contraseña
+    const [password, setPassword] = useState("");
+    const [mail, setMail] = useState("");
+    const [showErrorMessage, setShowErrorMessage] = useState("");
+    const changePassword = async () => {
+        if (password.length > 0) {
+            setShowErrorMessage("");
+            console.log(mail);
+            console.log(password);
+            try {
+                const response = await AxiosClient.post("api/user/change-password", {
+                    mail: mail,
+                    password: password,
+                });
+                if (response.status === "OK") {
+                    showCustomAlert("¡Contraseña actualizada!", "Has actualizado tu contraseña correctamente");
+                } else {
+                    showCustomAlert('Error', 'No se ha podido actualizar tu contraseña');
+                    console.log(response);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
+    // Fin de Cambio de contraseña
 
     return (
         <View style={styles.container}>
@@ -11,16 +65,13 @@ export default function UpdateProfile() {
                 Actualizar información
             </Text>
             <Text style={styles.text}>
-                Nuevo nombre:
-            </Text>
-            <TextInput placeholder={"Nombre"} style={styles.input} />
-            <Text style={styles.text}>
                 Nueva contraseña:
             </Text>
             <View style={styles.passwordInputContainer}>
                 <TextInput
                     placeholder={"Contraseña"}
                     style={styles.passwordInput}
+                    onChangeText={(text) => setPassword(text)}
                     secureTextEntry={!showPassword} />
                 <Icon
                     type="material-community"
@@ -53,6 +104,14 @@ export default function UpdateProfile() {
                 color={"#419277"}
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
+                onPress={changePassword}
+            />
+            <CustomAlert
+                visible={alertVisible}
+                title={alertInfo.title}
+                message={alertInfo.message}
+                onConfirm={() => setAlertVisible(false)}
+                onCancel={() => setAlertVisible(false)}
             />
         </View>
     )
@@ -125,4 +184,4 @@ const styles = StyleSheet.create({
     icon: {
         paddingHorizontal: 15
     }
-})
+});

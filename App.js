@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Navigation from "./src/config/navigation/Navigation";
 import { Login } from "./src/modules/auth/login/adapters/screens/Login";
 import { AuthContext, UserLogged } from "./src/config/user-logged/UserLogged";

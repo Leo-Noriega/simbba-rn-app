@@ -1,4 +1,4 @@
-import React, { useState , useContext} from "react";
+import React, { useState, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,12 +8,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Button, Icon } from "@rneui/base";
-import { isEmpty, set } from "lodash";
+import { isEmpty } from "lodash";
 import AxiosClient from "../../../../../config/http-client/axios-client";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../../../../config/user-logged/UserLogged";
+import CustomAlert from "../../../../../kernel/components/CustomAlert";
 
 export function Login({ navigation }) {
+
+  // Inicio de alerta
+  const [alertVisible, setAlertVisible] = React.useState(false);
+  const [alertInfo, setAlertInfo] = React.useState({ title: '', message: '' });
+
+  const showCustomAlert = (title, message) => {
+    setAlertInfo({ title, message });
+    setAlertVisible(true);
+  };
+  // Fin de alerta
+
   //Inicio de auth
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -28,12 +40,12 @@ export function Login({ navigation }) {
           password: password,
         });
         if (response.status === "OK") {
-          console.log("Login correcto");
+          showCustomAlert("¡Bienvenido!", "Has iniciado sesión correctamente");
           await AsyncStorage.setItem("session", JSON.stringify(response.data));
           setIsAuthenticated(true);
         }
       } catch (error) {
-        setShowErrorMessage("Usuario o contraseña incorrectos");
+        showCustomAlert('Error', 'Usuario o contraseña incorrectos');
       }
     } else {
       console.log("Campos vacios");
@@ -41,9 +53,13 @@ export function Login({ navigation }) {
     }
   };
   //Fin de auth
+
+  // Inicio de mostrar contraseña
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   const [showPassword, setShowPassword] = useState(false);
+  // Fin de mostrar contraseña
+
 
   return (
     <View style={styles.container}>
@@ -112,6 +128,13 @@ export function Login({ navigation }) {
         />
         <Text style={styles.logoText}>{"SIMBBA"}</Text>
       </View>
+      <CustomAlert
+        visible={alertVisible}
+        title={alertInfo.title}
+        message={alertInfo.message}
+        onConfirm={() => setAlertVisible(false)}
+        onCancel={() => setAlertVisible(false)}
+      />
     </View>
   );
 }

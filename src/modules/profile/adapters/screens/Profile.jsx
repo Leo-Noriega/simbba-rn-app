@@ -18,6 +18,9 @@ export default function Profile({ navigation }) {
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("session");
+    if (isAuthenticated) {
+      // TODO: Add custom alert of confirmation
+    }
     setIsAuthenticated(false);
   };
 
@@ -29,10 +32,10 @@ export default function Profile({ navigation }) {
           name={"user-circle-o"}
           type={"font-awesome"}
           color={"#0F2D5D"}
-          size={150}
+          size={140}
         />
-        <Text style={{ fontSize: 24, fontWeight: "bold" }}>Usuario:</Text>
-        <Text style={{ fontSize: 18, marginTop: 15 }}>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Usuario:</Text>
+        <Text style={{ fontSize: 26, marginTop: 15 }}>
           {session?.user?.mail}
         </Text>
       </View>
