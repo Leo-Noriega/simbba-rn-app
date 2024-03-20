@@ -103,8 +103,8 @@ export default function UpdateProfile() {
                 size={"lg"}
                 color={"#419277"}
                 buttonStyle={styles.button}
-                titleStyle={styles.buttonTitle}
                 onPress={changePassword}
+                titleStyle={styles.buttonTitle}
             />
             <CustomAlert
                 visible={alertVisible}

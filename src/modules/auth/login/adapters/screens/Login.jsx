@@ -43,12 +43,14 @@ export function Login({ navigation }) {
           showCustomAlert("¡Bienvenido!", "Has iniciado sesión correctamente");
           await AsyncStorage.setItem("session", JSON.stringify(response.data));
           setIsAuthenticated(true);
+        } else {
+            showCustomAlert('Error', 'Usuario o contraseña incorrectos');
         }
       } catch (error) {
         showCustomAlert('Error', 'Usuario o contraseña incorrectos');
       }
     } else {
-      console.log("Campos vacios");
+      showCustomAlert("Error", "Campos vacios");
       setShowErrorMessage("Campos incorrectos");
     }
   };

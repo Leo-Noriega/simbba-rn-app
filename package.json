@@ -20,7 +20,8 @@
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-native": "0.73.2",
-    "react-native-maps": "1.10.0"
+    "react-native-maps": "1.10.0",
+    "react-native-progress": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
