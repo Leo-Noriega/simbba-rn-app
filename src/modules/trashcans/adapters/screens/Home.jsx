@@ -19,7 +19,7 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
     getBotes();
-  })
+  });
 
   return (
     <View style={styles.container}>
@@ -36,7 +36,11 @@ export default function Home({ navigation }) {
           data={botes}
           renderItem={({ item }) => (
             <FlatListHome
-            trashcanName={item.trashcanName}
+              trashcanData={{
+                name: item.trashcanName,
+                level: item.level,
+                serialNumber: item.serialNumber,
+              }}
             ></FlatListHome>
           )}
           keyExtractor={(item) => item.id.toString()}
