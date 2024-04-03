@@ -1,4 +1,5 @@
 //rnfs
+//xd
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Image } from "@rneui/base";
@@ -41,16 +42,19 @@ export default function FlatListHome(props) {
   }`;
   const dynamicStyles = StyleSheet.create({
     listHome: {
-      flex: 1,
       flexDirection: 'column', // Cambiado a columna para alinear los elementos verticalmente
+      justifyContent: 'center', // Centra los elementos verticalmente
       alignItems: 'center', // Centra los elementos horizontalmente
+      padding: 5,
+      margin: 8, // Añade márgenes para separar los elementos en la FlatList
+      borderRadius: 10, // Opcional: Añade bordes redondeados
       marginBottom: 10,
       marginRight: 10,
       elevation: 5,
       backgroundColor: fondo,
       borderRadius: 20,
       width: '45%',
-      height: 100,
+      height: 160,
     },
   })
 
@@ -69,14 +73,15 @@ export default function FlatListHome(props) {
     return result;
   };
 
+  /*<Text style={styles.SerialNumberText}>{serialNumber}</Text> */
   return (
-    <View style={styles.container}>
+    <View style={dynamicStyles.listHome}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={Trashcan} />
       </View>
       <View style={styles.containerText}>
       <Text style={styles.title} numberOfLines={3}>{splitTextIntoLines(name, 15)}</Text>
-        <Text style={styles.description}>{serialNumber}</Text>
+        
         <Text style={styles.description}>{capacidad}</Text>
         <Progress.Bar
           progress={level}
@@ -115,43 +120,53 @@ const styles = StyleSheet.create({
   imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 80,
+    width: 50,
     height: 70,
   },
   image: {
-    width: 100, // Especifica un ancho
-    height: 90, // y un alto para la imagen
-    marginBottom: 1, // Espacio entre la imagen y el texto
+    width: 50, // Especifica un ancho
+    height: 60, // y un alto para la imagen
+    marginBottom: 10, // Espacio entre la imagen y el texto
   },
   text: {
     textAlign: "center",
     fontSize: 16, // Ajusta el tamaño del texto según necesites
   },
   title: {
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: "bold",
-    marginBottom: 0,
-    marginTop: 3,
+    marginBottom: 3,
+    marginTop: -10,
     marginRight: 0,
     color: "#000000",
     textAlign: "center",
     lineHeight: 15,
   },
   description: {
-    fontSize: 15,
-    fontWeight: "normal",
+    fontSize: 13,
+    fontWeight: "bold",
     marginBottom: 0,
     marginTop: 5,
+    color: "#0C0B0B",
+    lineHeight: 13,
+    textAlign: "center",
+  },
+  SerialNumberText: {
+    fontSize: 13,
+    fontWeight: "bold",
+    marginBottom: 0,
+    marginTop: 3,
     color: "#0C0B0B",
     lineHeight: 15,
     textAlign: "center",
   },
   porcentajeText: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: "bold",
     marginTop: 5,
+    marginBottom: 5,
     color: "#0C0B0B",
-    lineHeight: 20,
+    lineHeight: 15,
     textAlign: "center",
   },
   containerText: {

@@ -7,7 +7,6 @@ function AppContent() {
   const { isAuthenticated } = useContext(AuthContext);
   return isAuthenticated ? <Navigation /> : <Login />;
 }
-//<Login /> : <Navigation />
 
 export default function App() {
   return (
