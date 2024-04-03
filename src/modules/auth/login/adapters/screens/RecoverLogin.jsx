@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Alert } from 'react-native';
 import { Button, Icon } from '@rneui/base';
 
-export default function RecoverLogin({ navigation }) { 
+export function RecoverLogin({ navigation }) {
     const handleEnviar = () => {
         setTimeout(() => {
             Alert.alert(
@@ -19,7 +19,7 @@ export default function RecoverLogin({ navigation }) {
             );
         }, 1000);
     };
-    
+
     return (
         <View style={styles.container}>
             <View style={styles.containerRecover}>

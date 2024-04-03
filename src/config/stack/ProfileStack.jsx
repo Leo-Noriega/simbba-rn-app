@@ -1,18 +1,15 @@
-import React from "react";
 import { Text, View } from "react-native";
 import { Icon } from "@rneui/base";
 import { createStackNavigator } from '@react-navigation/stack';
 import Profile from "../../modules/profile/adapters/screens/Profile";
 import UpdateProfile from "../../modules/profile/adapters/screens/UpdateProfile";
-import Login from "../../modules/auth/login/adapters/screens/Login";
-import RecoverLogin from "../../modules/auth/login/adapters/screens/RecoverLogin";
 
 const Stack = createStackNavigator();
 
 export default function ProfileStack() {
 	return (
 		<Stack.Navigator
-			initialRouteName={"Login"}
+			initialRouteName={"Mi Perfil"}
 			screenOptions={{
 				headerTintColor: 'white',
 				headerStyle: {
@@ -42,26 +39,6 @@ export default function ProfileStack() {
 				component={UpdateProfile}
 				options={{
 					title: "EDITAR PERFIL",
-					headerTitleAlign: 'left',
-					headerBackTitleVisible: false,
-				}}
-			/>
-			<Stack.Screen
-				name="Login"
-                component={Login}
-				options={{
-					headerShown: false,
-					title: "CERRAR SESIÓN",
-					headerTitleAlign: 'left',
-					headerBackTitleVisible: false,
-				}}
-			/>
-			<Stack.Screen
-				name={'RecoverLogin'}
-				component={RecoverLogin}
-				options={{
-					headerShown: false,
-					title: "Recuperar Contraseña",
 					headerTitleAlign: 'left',
 					headerBackTitleVisible: false,
 				}}
