@@ -19,9 +19,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit accumsan nullam nisi, vit
 */
 export default function FlatListHome(props) {
   const { name, level, serialNumber } = props.trashcanData;
-  console.log("Nivel de llenado: ", level);
-  console.log("=====================");
-  console.log("numero de serie: ", serialNumber);
+  const barra = level/100;
   const fondo = `${
     level >= 85
       ? "#d5a0a0"
@@ -53,7 +51,7 @@ export default function FlatListHome(props) {
       elevation: 5,
       backgroundColor: fondo,
       borderRadius: 20,
-      width: '45%',
+      width: 160,
       height: 160,
     },
   })
@@ -84,7 +82,7 @@ export default function FlatListHome(props) {
         
         <Text style={styles.description}>{capacidad}</Text>
         <Progress.Bar
-          progress={level}
+          progress={barra}
           width={108}
           color={
             level >= 85

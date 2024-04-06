@@ -17,12 +17,12 @@ export default function Map({navigation}) {
                 style={StyleSheet.absoluteFill}
                 initialRegion={INITIAL_REGION}
             />
-            <Button
+            {/*<Button
                 title={"Simulando que le picas a un bote"}
                 onPress={() => {
                     navigation.navigate("Bote Map")
                 }}
-            />
+            />*/}
         </View>
     )
 }

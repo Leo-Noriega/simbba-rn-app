@@ -47,12 +47,12 @@ export default function Home({ navigation }) {
           contentContainerStyle={styles.flatListStyle}
         />
       </View>
-      <Button
+      {/*<Button
         title={"Simulando que le picas a un bote"}
         onPress={() => {
           navigation.navigate("Bote Home");
         }}
-      />
+      />*/}
     </View>
   );
 }
