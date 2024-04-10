@@ -17,12 +17,20 @@ export default function Map({navigation}) {
                 style={StyleSheet.absoluteFill}
                 initialRegion={INITIAL_REGION}
             />
-            <Button
+<<<<<<< Updated upstream
+            {/*<Button
+=======
+            {/* <Button
+>>>>>>> Stashed changes
                 title={"Simulando que le picas a un bote"}
                 onPress={() => {
                     navigation.navigate("Bote Map")
                 }}
-            />
+<<<<<<< Updated upstream
+            />*/}
+=======
+            /> */}
+>>>>>>> Stashed changes
         </View>
     )
 }

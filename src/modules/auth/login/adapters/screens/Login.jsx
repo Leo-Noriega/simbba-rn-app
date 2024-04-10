@@ -113,11 +113,11 @@ export function Login({ navigation }) {
           onPress={login}
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate("RecoverLogin")}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("RecoverLogin")}>
           <Text style={styles.forget}>
             {"¿Se te ha olvidado la contraseña?"}
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={{ flexDirection: "row", alignItems: "center" }}>
