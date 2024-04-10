@@ -47,20 +47,12 @@ export default function Home({ navigation }) {
           contentContainerStyle={styles.flatListStyle}
         />
       </View>
-<<<<<<< Updated upstream
       {/*<Button
-=======
-      {/* <Button
->>>>>>> Stashed changes
         title={"Simulando que le picas a un bote"}
         onPress={() => {
           navigation.navigate("Bote Home");
         }}
-<<<<<<< Updated upstream
       />*/}
-=======
-      /> */}
->>>>>>> Stashed changes
     </View>
   );
 }
