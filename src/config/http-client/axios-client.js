@@ -1,7 +1,7 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const SERVER_URL = "http://192.168.100.7:82";
+const SERVER_URL = "http://simbba-env.eba-3try2umm.us-east-1.elasticbeanstalk.com/api";
 const APP_JSON = "application/json";
 
 const AxiosClient = axios.create({
