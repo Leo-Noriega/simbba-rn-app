@@ -3,13 +3,14 @@ import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Map from "../../modules/gps/adapters/screens/Map";
 import Trashcan from "../../modules/trashcans/adapters/screens/Trashcan";
+import PantallaMaps from "../../modules/gps/adapters/screens/PantallaMaps"
 
 const Stack = createStackNavigator();
 
 export default function GpsStack() {
 	return (
 		<Stack.Navigator
-			initialRouteName={"Map"}
+			initialRouteName={"PantallaMaps"}
 			screenOptions={{
 				headerMode: 'screen',
 				headerTintColor: 'white',
@@ -40,6 +41,14 @@ export default function GpsStack() {
 					title: "Bote de Basura",
 					headerTitleAlign: 'left',
 					headerBackTitleVisible: false,
+				}}
+			/>
+			<Stack.Screen
+				name={"PantallaMaps"}
+				component={PantallaMaps}
+				options={{
+					title: "SELECCIÓN DE MAPA",
+					headerTitleAlign: 'left',
 				}}
 			/>
 		</Stack.Navigator>
