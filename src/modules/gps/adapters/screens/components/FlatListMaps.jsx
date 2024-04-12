@@ -27,12 +27,12 @@ export default function FlatListMaps(props) {
   }`;
   const dynamicStyles = StyleSheet.create({
     listHome: {
-      flexDirection: 'column', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
+      flexDirection: 'column', // Cambiado a columna para alinear los elementos verticalmente
+      justifyContent: 'center', // Centra los elementos verticalmente
+      alignItems: 'center', // Centra los elementos horizontalmente
       padding: 5,
-      margin: 8, 
-      borderRadius: 10, 
+      margin: 8, // Añade márgenes para separar los elementos en la FlatList
+      borderRadius: 10, // Opcional: Añade bordes redondeados
       marginBottom: 10,
       marginRight: 10,
       elevation: 5,
