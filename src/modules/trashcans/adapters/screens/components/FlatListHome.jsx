@@ -19,10 +19,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit accumsan nullam nisi, vit
 */
 export default function FlatListHome(props) {
   const { name, level, serialNumber } = props.trashcanData;
-<<<<<<< Updated upstream
   const barra = level/100;
-=======
->>>>>>> Stashed changes
   const fondo = `${
     level >= 85
       ? "#d5a0a0"
@@ -54,11 +51,7 @@ export default function FlatListHome(props) {
       elevation: 5,
       backgroundColor: fondo,
       borderRadius: 20,
-<<<<<<< Updated upstream
       width: 160,
-=======
-      width: 180,
->>>>>>> Stashed changes
       height: 160,
     },
   })
