@@ -66,7 +66,7 @@ export function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.containerLogin}>
-        <Text style={styles.title}>{"Inicia sesión en SIBBAI"}</Text>
+        <Text style={styles.title}>{"Inicia sesión en SIMBBA"}</Text>
 
         <Text style={styles.label}>{"Correo electrónico:"}</Text>
         <TextInput
