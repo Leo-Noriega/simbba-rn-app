@@ -39,7 +39,7 @@ export default function PantallaMaps({ navigation }) {
                 name: item.trashcanName,
                 level: item.level,
                 serialNumber: item.serialNumber,
-                onPress: handleCardPress // Pasar la función de manejo de eventos onPress
+                onPress: handleCardPress
               }}
             />
           )}
